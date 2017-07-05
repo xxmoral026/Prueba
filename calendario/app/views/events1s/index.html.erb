@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<h1><center>GRAFICO</center></h1>
+<body>
+  <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+  <%= stylesheet_link_tag 'http://yandex.st/bootstrap/3.1.1/css/bootstrap.min.css' %>
+  <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %>
+  <%= javascript_include_tag "//www.google.com/jsapi" %>
+  <%= javascript_include_tag "application", "chartkick" %>
+  <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+<% Chartkick.options = {
+
+  :type => 'horizontal',
+  :size => '700x400',
+  :stacked => true,
+  :alignment => "center",
+  :legend => ['first data set label', 'second data set label'],
+  :legend => 'bottom'
+    }%>
+
+<%= bar_chart [
+  {:name => "Adams", :link_to => "Adams", :data => ["59", "850"] },
+  {:name => "Adams", :data => ["79", "105"] },
+  {:name => "Washington", :data => ["23", "90"] },
+  {:name => "LIMA", :data => ["100","120"] },
+  {:name => "SSS", :data => ["45", "63"] },
+  {:name => "oo", :data => ["10", "53"] }]
+%>
